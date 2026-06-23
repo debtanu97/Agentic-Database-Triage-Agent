@@ -1,0 +1,17 @@
+[
+  {
+    "node": "NESTED LOOPS",
+    "issue": "Cardinality mismatch: estimated 1 vs actual 335726",
+    "specific_fixes": "Review join columns and predicates used in the NESTED LOOPS operation, especially inherited predicates from ancestor nodes"
+  },
+  {
+    "node": "TABLE ACCESS REVISIONS",
+    "issue": "Cardinality mismatch: estimated 1 vs actual 335726; predicate \"R\".\"DCREATEDATE\" >= SYSDATE@!-:SYS_B_1 may be preventing index usage leading to a full table scan",
+    "specific_fixes": "Index REVISIONS.DCREATEDATE or ensure an existing index is used; review predicate form to ensure it is sargable and uses bind variables"
+  },
+  {
+    "node": "INDEX PK_DOCMETA",
+    "issue": "Cardinality mismatch: estimated 1 vs actual 335726; index not used efficiently or estimates incorrect",
+    "specific_fixes": "Review PK_DOCMETA index usage and statistics; verify join predicate \"M\".\"DID\" = \"R\".\"DID\" and ensure appropriate indexing and up-to-date statistics"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "node": "TABLE ACCESS pay_old_value_defns_f",
+    "issue": "Predicate pushdown issue: filters appear at the view level (nearest_view_ancestor) rather than pushed to the base table, preventing efficient pruning",
+    "specific_fixes": "Rewrite the query to apply filters directly on pay_old_value_defns_f or create indexes on frequently filtered columns (e.g. BASE_NAME, SOURCE_TYPE, ENTERPRISE_ID)"
+  },
+  {
+    "node": "TABLE ACCESS pay_old_value_defns_f",
+    "issue": "Index-blocking predicates: presence of OR conditions and functions (e.g. INTERNAL_FUNCTION(\"ENTERPRISE_ID\") and SYS_OP_BLOOM_FILTER(:BF0000,\"SOURCE_ID\")) may prevent index usage",
+    "specific_fixes": "Refactor predicates to avoid OR/function patterns (consider UNION ALL or rewriting predicates) and ensure appropriate indexes exist on BASE_NAME, SOURCE_TYPE, ENTERPRISE_ID"
+  },
+  {
+    "node": "TABLE ACCESS pay_old_value_defns_f",
+    "issue": "High I/O: actual read bytes and read requests are much larger than estimated, indicating inefficient data retrieval",
+    "specific_fixes": "Create or validate indexes on predicate columns (BASE_NAME, SOURCE_TYPE, ENTERPRISE_ID), consider partitioning or additional predicate pushdown to reduce scanned data"
+  }
+]

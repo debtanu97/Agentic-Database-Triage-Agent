@@ -1,0 +1,98 @@
+1. Setting up venv (ignore if (venv) already active):
+python -m venv venv
+source venv/bin/activate  
+
+2. install modules
+pip install lxml
+pip install beautifulsoup4
+pip install langchain   
+pip install langchain-community  
+pip install langchain_ollama
+
+3. Download model:
+download model from https://www.llama.com/llama-downloads/
+After filling details, it will redirect to a setup guide page for llama. (very imp)
+In this current project terminal run:
+pip install llama-stack
+llama model list
+llama model download --source meta --model-id  "MODEL_ID" (replace this model id by "Llama3.1-8B" (model id for our model))
+after running the above cmd it will ask for a unique custom url that will be available in setup guide page. Just copy paste it.
+
+4. Download Model runner:
+Download Ollama from https://ollama.com/download 
+After downloading, if u open the installer it will ask you to transfer ollama to Applications Folder
+Then the setup is done. Now run, 
+pip install -U ollama
+check this cmd: ollama --version (if this cmd doesnt work try ollama serve and try again.)
+if it provides the correct version then run 
+ollama pull llama3
+if this cmd works fine, then the llm setup is done
+
+Now you can run the project.
+
+sql_monitor_report
+report_parameters
+target
+sql_id
+sql_exec_id
+sql_exec_start
+duration
+refresh_count
+first_refresh_time
+last_refresh_time
+interval_start
+interval_end
+status
+optimizer_env
+param
+plan
+operation
+activity
+activity_detail
+activity_sampled
+io_cost
+cpu_cost
+cost
+cardinality
+card
+predicates
+stat
+stat_info
+buckets
+bucket_count
+bind
+binds
+peeked_binds
+rminfo
+optimizer
+qblock
+hint  
+qb_registry  
+plan  
+io_cost  
+activity  
+bind  
+peeked_binds  
+object_alias  
+optimizer_env  
+sql_monitor_report  
+refresh_count  
+plan_monitor  
+last_refresh_time  
+cardinality  
+binds  
+sql_exec_id  
+cpu_cost  
+time  
+param  
+sql_id  
+predicates  
+stats  
+activity_sampled  
+optimizer  
+stat_info  
+cost  
+operation  
+interval_start  
+stat  
+sql_exec_start  

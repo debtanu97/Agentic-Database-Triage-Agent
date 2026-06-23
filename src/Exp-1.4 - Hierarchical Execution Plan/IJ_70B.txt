@@ -1,0 +1,6 @@
+{
+  "node": "TABLE ACCESS po_headers_all",
+  "issue": "Local predicates include an OR condition and IS NULL checks which may prevent index usage, causing high duration (10 >= 90% of total elapsed time) and a high estimated CPU cost (197645).",
+  "predicates": "\"PRL1\".\"SOURCE_DOC_HEADER_ID\" IS NULL OR (\"PRL1\".\"SOURCE_DOC_HEADER_ID\" = \"POH1\".\"PO_HEADER_ID\" AND \"PRL1\".\"SOURCE_DOC_HEADER_ID\" IS NOT NULL AND \"POH1\".\"STYLE_ID\" <> :B1)",
+  "specific_fixes": "Review and rewrite predicates to avoid non-sargable OR/IS NULL patterns (e.g., refactor or split into UNION ALL), verify appropriate indexes on join/filter columns, and gather fresh optimizer statistics."
+}
