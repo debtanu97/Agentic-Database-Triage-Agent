@@ -94,15 +94,15 @@ The system is structured into four horizontal planes that interact through well-
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                       AGENT ORCHESTRATION PLANE                             │
 │                                                                             │
-│   ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────────┐   │
-│   │  Pre-filter      │    │  ReAct Loop     │    │  Guardrail Layer    │   │
-│   │  (5 checks)      │───▶│  (max 5 iter)   │───▶│  (4 checks)        │   │
-│   └─────────────────┘    └─────────────────┘    └─────────────────────┘   │
+│   ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────────┐     │
+│   │  Pre-filter     │    │  ReAct Loop     │    │  Guardrail Layer    │     │
+│   │  (5 checks)     │───▶│  (max 5 iter)   │───▶│  (4 checks)         │     │
+│   └─────────────────┘    └─────────────────┘    └─────────────────────┘     │
 │                                   │                         │               │
-│   ┌─────────────────┐    ┌────────┴────────┐    ┌──────────▼──────────┐   │
-│   │  Knowledge Base  │    │  Evidence Map   │    │  Confidence Gate    │   │
-│   │  (vector index)  │    │  (belief state) │    │  + Output Router    │   │
-│   └─────────────────┘    └─────────────────┘    └─────────────────────┘   │
+│   ┌─────────────────┐    ┌────────┴────────┐    ┌──────────▼──────────┐     │
+│   │  Knowledge Base │    │  Evidence Map   │    │  Confidence Gate    │     │
+│   │  (vector index) │    │  (belief state) │    │  + Output Router    │     │
+│   └─────────────────┘    └─────────────────┘    └─────────────────────┘     │
 └───────────────────────────────────┬─────────────────────────────────────────┘
                                     │
                                     ▼
@@ -114,8 +114,8 @@ The system is structured into four horizontal planes that interact through well-
 
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │              OBSERVABILITY & EVALUATION PLANE  (spans all above)            │
-│   Eval Harness · Metrics Store · Model Registry · Retraining Pipeline      │
-│   Golden Set (2K pairs) · Drift Detector · Prompt Versioning · DPO/LoRA    │
+│   Eval Harness · Metrics Store · Model Registry · Retraining Pipeline       │
+│   Golden Set (2K pairs) · Drift Detector · Prompt Versioning · DPO/LoRA     │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -228,14 +228,14 @@ Slow query event arrives
 ┌───────────────────────────────────────────────────────────┐
 │  ReAct LOOP  (max 5 iterations)                           │
 │                                                           │
-│  ┌─────────┐    ┌─────────┐    ┌─────────┐              │
-│  │ REASON  │───▶│   ACT   │───▶│ OBSERVE │──┐           │
-│  │         │    │         │    │         │  │           │
-│  │ Score   │    │ Tool    │    │ Parse   │  │ loop if   │
-│  │ 14 hypo │    │ calls   │    │ → update│  │ not enough│
-│  │ types   │    │         │    │ evidence│  │ evidence  │
-│  └─────────┘    └─────────┘    │ map     │◀─┘           │
-│       ▲                        └─────────┘               │
+│  ┌─────────┐    ┌─────────┐    ┌─────────┐                │
+│  │ REASON  │───▶│   ACT   │───▶│ OBSERVE │──┐             │
+│  │         │    │         │    │         │  │             │
+│  │ Score   │    │ Tool    │    │ Parse   │  │ loop if     │
+│  │ 14 hypo │    │ calls   │    │ → update│  │ not enough  │
+│  │ types   │    │         │    │ evidence│  │ evidence    │
+│  └─────────┘    └─────────┘    │ map     │◀─┘             │
+│       ▲                        └─────────┘                │
 │       └──── 200-token belief summary per iteration ───────│
 └───────────────────────────┬───────────────────────────────┘
                             │  confirmed hypothesis
@@ -718,8 +718,7 @@ The system's most interesting moment was **not the rewrite — it was a guardrai
 **Debtanu Pal** — Senior Software Engineer, Distributed Systems & AI Platform
 
 - Email: [debtanu97@gmail.com](mailto:debtanu97@gmail.com)
-- Website: [debtanu.me](https://debtanu.me)
-- LinkedIn: [debtanup](https://linkedin.com/in/debtanup)
+- LinkedIn: [debtanup](https://www.linkedin.com/in/debtanu-pal-98866b126/)
 - GitHub: [debtanu](https://github.com/debtanu)
 
 ---
